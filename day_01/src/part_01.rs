@@ -4,16 +4,15 @@ use crate::Input;
 
 pub fn main(input: &Input) -> Result<u32> {
     Ok(input
-        .into_iter()
+        .iter()
         .map(|row| {
             let digits: Vec<u32> = row
                 .chars()
-                .into_iter()
                 .map(|c| {
-                    if c.is_digit(10) {
-                        return Some(c.to_digit(10).unwrap())
+                    if c.is_ascii_digit() {
+                        Some(c.to_digit(10).unwrap())
                     } else {
-                        return None
+                        None
                     }
                 })
                 .filter(|o| match o {
