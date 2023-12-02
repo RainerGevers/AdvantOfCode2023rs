@@ -25,6 +25,5 @@ pub fn main(input: &Input) -> Result<u32> {
             let last = digits.last().unwrap_or(&0).to_owned();
             format!("{}{}", first, last).as_str().parse().unwrap_or(0)
         })
-        .sum()
-    )
+        .sum())
 }
